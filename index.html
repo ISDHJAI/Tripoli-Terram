@@ -1,0 +1,122 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Trípoli — Terram Residencial | CASTDIM</title>
+<meta name="description" content="Casa Trípoli en Terram Residencial, Privada Agave Azul. 120 m² de terreno, 140.41 m² de construcción. Galería y distribución a detalle.">
+<link rel="icon" href="assets/castdim-piramide.png">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<!-- Indicador de progreso: motivo de marca (tres montañas) -->
+<div class="progress-peaks" id="progressPeaks">
+  <svg viewBox="0 0 60 40" xmlns="http://www.w3.org/2000/svg">
+    <g>
+      <path d="M0 40 L12 14 L24 40 Z" fill="var(--line)"/>
+      <path class="peak-fill" data-peak="0" d="M0 40 L12 14 L24 40 Z" fill="var(--stone-700)"/>
+    </g>
+    <g>
+      <path d="M14 40 L26 6 L38 40 Z" fill="var(--line)"/>
+      <path class="peak-fill" data-peak="1" d="M14 40 L26 6 L38 40 Z" fill="var(--stone-300)"/>
+    </g>
+    <g>
+      <path d="M28 40 L40 12 L52 40 Z" fill="var(--line)"/>
+      <path class="peak-fill" data-peak="2" d="M28 40 L40 12 L52 40 Z" fill="var(--gold)"/>
+    </g>
+  </svg>
+</div>
+
+<header class="site-header" id="siteHeader">
+  <div class="brand-mark">
+    <img class="mini-peaks" src="assets/castdim-piramide.png" alt="">
+    <span>Trípoli</span>
+  </div>
+  <div class="header-tag">Terram Residencial</div>
+</header>
+
+<section class="hero" id="hero">
+  <div class="hero-media">
+    <img id="heroImg" src="assets/hero-fachada.jpg" alt="Fachada Trípoli — Terram Residencial">
+    <div class="hero-scrim"></div>
+  </div>
+  <div class="hero-content">
+    <div class="hero-eyebrow"><span class="dash"></span>Privada Agave Azul · San Luis Potosí</div>
+    <h1 class="hero-title"><span>Trípoli</span></h1>
+    <p class="hero-sub">Una casa pensada para vivirse en dos plantas: áreas sociales abiertas en planta baja y privacidad completa arriba, dentro de Terram Residencial.</p>
+    <div class="hero-cta-row">
+      <div class="price-badge">
+        <span class="price-label">Desde</span>
+        <span class="price-value" id="priceFrom">$0</span>
+        <span class="price-to">hasta <strong id="priceTo">$0</strong> <span id="priceCur"></span></span>
+      </div>
+      <div class="scroll-cue"><div class="line"></div>Recorrer la casa</div>
+    </div>
+  </div>
+</section>
+
+<section class="stats">
+  <div class="wrap stats-row" id="statsRow">
+    <!-- generado por JS desde property-data.js -->
+  </div>
+</section>
+
+<section class="section plans">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <div class="eyebrow"><span class="dash"></span>Distribución</div>
+      <h2 class="section-title">Cada nivel, a detalle</h2>
+      <p class="section-desc">Consulta la distribución de planta baja y planta alta de Trípoli, tal como se entrega en Privada Agave Azul.</p>
+    </div>
+
+    <div class="tabs reveal" role="tablist" aria-label="Seleccionar planta">
+      <button class="tab-btn active" data-plan="plantaBaja" role="tab" aria-selected="true">Planta Baja</button>
+      <button class="tab-btn" data-plan="plantaAlta" role="tab" aria-selected="false">Planta Alta</button>
+    </div>
+
+    <div class="plan-panel reveal" id="planPanel">
+      <!-- generado por JS -->
+    </div>
+  </div>
+</section>
+
+<section class="section" id="gallery">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <div class="eyebrow"><span class="dash"></span>Galería</div>
+      <h2 class="section-title">Trípoli en imágenes</h2>
+      <p class="section-desc">Fotografías de la propiedad para conocerla con más detalle antes de visitarla.</p>
+    </div>
+    <div id="galleryContainer" class="reveal"></div>
+  </div>
+</section>
+
+<section class="closing">
+  <div class="wrap">
+    <div class="eyebrow"><span class="dash"></span>Ubicación</div>
+    <h2 class="section-title">Terram Residencial, San Luis Potosí</h2>
+    <p class="section-desc">Trípoli forma parte de Privada Agave Azul, dentro del desarrollo Terram Residencial.</p>
+
+    <div class="lockup">
+      <img src="assets/terram-logo.png" alt="Terram Residencial">
+      <div class="divider"></div>
+      <img class="lockup-castdim" src="assets/un-proyecto-de-castdim.png" alt="Un proyecto de CASTDIM">
+    </div>
+
+    <div class="foot-meta">
+      <span>Sueños Hechos Propiedad</span>
+      <span>CASTDIM · castdim.mx</span>
+    </div>
+  </div>
+</section>
+
+<div class="lightbox" id="lightbox">
+  <button class="lightbox-close" id="lightboxClose">Cerrar ✕</button>
+  <img id="lightboxImg" src="" alt="">
+</div>
+
+<script src="js/property-data.js"></script>
+<script src="js/main.js"></script>
+</body>
+</html>
