@@ -1,122 +1,548 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="es">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>Trípoli — Terram Residencial | CASTDIM</title>
-<meta name="description" content="Casa Trípoli en Terram Residencial, Privada Agave Azul. 120 m² de terreno, 140.41 m² de construcción. Galería y distribución a detalle.">
-<link rel="icon" href="assets/castdim-piramide.png">
-<link rel="stylesheet" href="css/style.css">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+<title>Azurita C · Privada Lanka | CASTDIM</title>
+<meta name="description" content="Azurita C en Privada Lanka. 3 niveles, 81 m² de terreno, 99.83 m² de construcción. Sala, comedor, cocina, jardín y cochera en planta baja; dos recámaras en planta alta; vestidor y estancia en el roof.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400;1,9..144,500&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#1c1b1a;
+    --paper:#faf8f4;
+    --paper-dim:#f1ede5;
+    --stone:#767571;
+    --stone-light:#b7b6b2;
+    --gold:#f7c948;
+    --gold-deep:#c99c1f;
+    --lanka-red:#a02a2e;
+    --lanka-blue:#1c5b91;
+    --line: rgba(28,27,26,0.12);
+    --shadow: 0 20px 50px -25px rgba(28,27,26,0.35);
+  }
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    margin:0;
+    background:var(--paper);
+    color:var(--ink);
+    font-family:'Manrope', sans-serif;
+    -webkit-font-smoothing:antialiased;
+    overflow-x:hidden;
+  }
+  h1,h2,h3,.serif{
+    font-family:'Fraunces', serif;
+    font-weight:500;
+    letter-spacing:-0.01em;
+    margin:0;
+  }
+  a{color:inherit;}
+  img{max-width:100%;display:block;}
+  .eyebrow{
+    font-family:'Manrope', sans-serif;
+    font-weight:700;
+    font-size:0.72rem;
+    letter-spacing:0.22em;
+    text-transform:uppercase;
+  }
+  .wrap{max-width:1080px;margin:0 auto;padding:0 24px;}
+
+  /* Reduced motion */
+  @media (prefers-reduced-motion: reduce){
+    *{animation-duration:0.01ms !important; transition-duration:0.01ms !important; scroll-behavior:auto !important;}
+  }
+
+  /* ===== Top identity bar ===== */
+  .topbar{
+    position:sticky; top:0; z-index:40;
+    background:rgba(250,248,244,0.86);
+    backdrop-filter:blur(10px);
+    border-bottom:1px solid var(--line);
+  }
+  .topbar-inner{
+    max-width:1080px;margin:0 auto;padding:14px 24px;
+    display:flex;align-items:center;justify-content:space-between;
+  }
+  .topbar .brand{display:flex;align-items:center;gap:10px;}
+  .topbar .brand img{height:22px;width:auto;}
+  .topbar .divider{width:1px;height:18px;background:var(--line);}
+  .topbar .privada-tag{font-size:0.68rem;letter-spacing:0.18em;text-transform:uppercase;color:var(--stone);font-weight:700;}
+  .topbar .cta{
+    font-size:0.78rem; font-weight:700; letter-spacing:0.02em;
+    background:var(--ink); color:var(--paper);
+    padding:9px 16px; border-radius:100px; text-decoration:none;
+    white-space:nowrap;
+  }
+
+  /* ===== Hero ===== */
+  .hero{
+    position:relative;
+    min-height:92vh;
+    display:flex;
+    align-items:flex-end;
+    overflow:hidden;
+  }
+  .hero-bg{
+    position:absolute; inset:0;
+    background-image:url('images/house-04.jpg');
+    background-size:cover;
+    background-position:center 30%;
+    transform:scale(1.06);
+    animation:heroreveal 1.6s ease-out forwards;
+  }
+  @keyframes heroreveal{ from{ transform:scale(1.12); opacity:0.7;} to{ transform:scale(1.06); opacity:1;} }
+  .hero-scrim{
+    position:absolute; inset:0;
+    background:linear-gradient(180deg, rgba(20,19,18,0.15) 0%, rgba(18,17,16,0.35) 55%, rgba(14,13,12,0.86) 100%);
+  }
+  .hero-content{
+    position:relative; z-index:2;
+    color:#fdfbf7;
+    width:100%;
+    padding:0 24px 56px;
+  }
+  .hero-inner{max-width:1080px;margin:0 auto;}
+  .hero-eyebrow-row{display:flex; align-items:center; gap:12px; margin-bottom:18px;}
+  .hero-eyebrow-row img{height:20px; width:auto; filter:brightness(0) invert(1); opacity:0.92;}
+  .hero-eyebrow-row .sep{color:rgba(253,251,247,0.5);}
+  .hero-eyebrow-row .privada{
+    font-size:0.72rem; letter-spacing:0.24em; text-transform:uppercase; font-weight:700;
+    color:var(--gold);
+  }
+  h1.hero-title{
+    font-size:clamp(3rem, 11vw, 6rem);
+    line-height:0.95;
+    font-weight:500;
+    color:#fdfbf7;
+  }
+  .hero-tagline{
+    margin-top:14px;
+    font-size:1rem;
+    font-style:italic;
+    font-family:'Fraunces', serif;
+    font-weight:400;
+    color:rgba(253,251,247,0.86);
+  }
+  .hero-meta-row{
+    margin-top:28px;
+    display:flex; flex-wrap:wrap; gap:28px; align-items:flex-end;
+  }
+  .hero-price .label{font-size:0.68rem; letter-spacing:0.18em; text-transform:uppercase; color:rgba(253,251,247,0.6); font-weight:700;}
+  .hero-price .value{font-family:'Fraunces', serif; font-size:clamp(1.15rem, 3.4vw, 1.9rem); color:var(--gold); margin-top:4px; white-space:nowrap;}
+  .hero-stats{display:flex; gap:22px; margin-left:auto;}
+  .hero-stats .stat{text-align:right;}
+  .hero-stats .stat .num{font-family:'Fraunces', serif; font-size:1.3rem; color:#fdfbf7;}
+  .hero-stats .stat .lbl{font-size:0.66rem; letter-spacing:0.1em; text-transform:uppercase; color:rgba(253,251,247,0.6);}
+  .scroll-cue{
+    position:absolute; bottom:22px; left:50%; transform:translateX(-50%);
+    z-index:2; width:1px; height:34px; background:rgba(253,251,247,0.5);
+  }
+  .scroll-cue::after{
+    content:''; position:absolute; top:0; left:-3px; width:7px; height:7px; border-radius:50%;
+    background:var(--gold);
+    animation:cue 1.8s ease-in-out infinite;
+  }
+  @keyframes cue{ 0%{ top:0; opacity:1;} 90%{ top:26px; opacity:0;} 100%{ top:26px; opacity:0;} }
+
+  /* ===== Intro strip ===== */
+  .intro{
+    padding:72px 0 40px;
+    border-bottom:1px solid var(--line);
+  }
+  .intro-grid{
+    display:grid; grid-template-columns: 1.1fr 0.9fr; gap:48px; align-items:start;
+  }
+  .intro h2{font-size:clamp(1.7rem,4vw,2.3rem); line-height:1.15;}
+  .intro p{font-size:1rem; line-height:1.7; color:#3a3937; margin-top:16px;}
+  .intro-facts{
+    display:grid; grid-template-columns:1fr 1fr; gap:1px;
+    background:var(--line);
+    border:1px solid var(--line);
+  }
+  .fact{background:var(--paper); padding:20px 22px;}
+  .fact .num{font-family:'Fraunces', serif; font-size:1.6rem;}
+  .fact .lbl{font-size:0.7rem; letter-spacing:0.08em; text-transform:uppercase; color:var(--stone); margin-top:4px;}
+
+  @media (max-width:760px){
+    .intro-grid{grid-template-columns:1fr; gap:28px;}
+  }
+
+  /* ===== Levels — the signature element: a vertical building section ===== */
+  .levels{
+    padding:88px 0 60px;
+    background:var(--ink);
+    color:var(--paper);
+    position:relative;
+  }
+  .levels .wrap{position:relative;}
+  .levels-head{margin-bottom:56px;}
+  .levels-head .eyebrow{color:var(--gold);}
+  .levels-head h2{color:var(--paper); font-size:clamp(1.8rem,4.5vw,2.6rem); margin-top:10px;}
+
+  .building{
+    display:grid;
+    grid-template-columns: 64px 1fr;
+    gap:0;
+  }
+  .rail{
+    position:relative;
+    display:flex; flex-direction:column; align-items:center;
+  }
+  .rail-line{
+    position:absolute; top:10px; bottom:10px; left:50%; transform:translateX(-50%);
+    width:2px;
+    background:linear-gradient(180deg, var(--gold) 0%, var(--lanka-blue) 100%);
+    opacity:0.55;
+  }
+  .level{
+    padding:0 0 64px 28px;
+    position:relative;
+  }
+  .level:last-child{padding-bottom:0;}
+  .level-marker{
+    position:absolute; left:-56px; top:2px;
+    width:38px; height:38px; border-radius:50%;
+    background:var(--paper); color:var(--ink);
+    display:flex; align-items:center; justify-content:center;
+    font-family:'Fraunces', serif; font-size:0.95rem;
+    border:2px solid var(--gold);
+    z-index:2;
+  }
+  .level-content{
+    display:grid; grid-template-columns: 1fr 1.15fr; gap:32px; align-items:center;
+  }
+  .level-tag{font-size:0.68rem; letter-spacing:0.2em; text-transform:uppercase; color:var(--gold); font-weight:700;}
+  .level h3{font-size:1.5rem; color:var(--paper); margin-top:8px;}
+  .level p{color:rgba(250,248,244,0.72); line-height:1.7; margin-top:12px; font-size:0.96rem;}
+  .level-photo{
+    aspect-ratio:4/3;
+    overflow:hidden;
+    border-radius:2px;
+  }
+  .level-photo img{width:100%; height:100%; object-fit:cover; transition:transform 0.6s ease;}
+  .level-photo:hover img{transform:scale(1.045);}
+
+  @media (max-width:760px){
+    .building{grid-template-columns: 44px 1fr;}
+    .level{padding-left:20px; padding-bottom:52px;}
+    .level-marker{left:-40px; width:32px; height:32px; font-size:0.8rem;}
+    .level-content{grid-template-columns:1fr; gap:18px;}
+  }
+
+  /* ===== Gallery ===== */
+  .gallery-section{padding:88px 0;}
+  .gallery-head{display:flex; align-items:flex-end; justify-content:space-between; gap:20px; margin-bottom:36px; flex-wrap:wrap;}
+  .gallery-head .eyebrow{color:var(--lanka-red);}
+  .gallery-head h2{font-size:clamp(1.7rem,4vw,2.3rem); margin-top:8px;}
+  .gallery-head p{color:var(--stone); font-size:0.9rem; max-width:340px;}
+
+  .gallery-grid{
+    display:grid;
+    grid-template-columns:repeat(4, 1fr);
+    grid-auto-rows:150px;
+    gap:8px;
+  }
+  .gallery-grid button{
+    all:unset; cursor:zoom-in; overflow:hidden; position:relative; display:block; border-radius:2px;
+  }
+  .gallery-grid img{width:100%; height:100%; object-fit:cover; transition:transform 0.5s ease;}
+  .gallery-grid button:hover img{transform:scale(1.05);}
+  .g-big{grid-column:span 2; grid-row:span 2;}
+  .g-wide{grid-column:span 2;}
+
+  @media (max-width:760px){
+    .gallery-grid{grid-template-columns:repeat(2,1fr); grid-auto-rows:120px;}
+    .g-big{grid-column:span 2; grid-row:span 2;}
+    .g-wide{grid-column:span 2;}
+  }
+
+  /* Lightbox */
+  .lightbox{
+    position:fixed; inset:0; background:rgba(14,13,12,0.94);
+    display:none; align-items:center; justify-content:center;
+    z-index:100; padding:24px;
+  }
+  .lightbox.open{display:flex;}
+  .lightbox img{max-height:88vh; max-width:92vw; border-radius:2px;}
+  .lightbox .close{
+    position:absolute; top:20px; right:24px; color:#fdfbf7; font-size:1rem;
+    background:none; border:1px solid rgba(253,251,247,0.4); border-radius:100px;
+    padding:8px 16px; cursor:pointer; font-family:'Manrope',sans-serif; letter-spacing:0.05em;
+  }
+  .lightbox .nav{
+    position:absolute; top:50%; transform:translateY(-50%);
+    background:none; border:none; color:#fdfbf7; font-size:1.8rem; cursor:pointer;
+    padding:12px 16px;
+  }
+  .lightbox .prev{left:6px;}
+  .lightbox .next{right:6px;}
+
+  /* ===== Financing / CTA band ===== */
+  .cta-band{
+    background:var(--gold);
+    padding:56px 0;
+  }
+  .cta-band-inner{
+    display:flex; align-items:center; justify-content:space-between; gap:24px; flex-wrap:wrap;
+  }
+  .cta-band h2{font-size:clamp(1.5rem,3.6vw,2rem); color:var(--ink);}
+  .cta-band p{color:rgba(28,27,26,0.7); margin-top:6px; font-size:0.95rem;}
+  .cta-band .buttons{display:flex; gap:12px; flex-wrap:wrap;}
+  .btn{
+    display:inline-flex; align-items:center; gap:8px;
+    padding:13px 22px; border-radius:100px; font-weight:700; font-size:0.88rem;
+    text-decoration:none; white-space:nowrap;
+  }
+  .btn-dark{background:var(--ink); color:var(--paper);}
+  .btn-outline{background:transparent; color:var(--ink); border:1.5px solid var(--ink);}
+
+  /* ===== Footer ===== */
+  footer{
+    background:var(--ink); color:rgba(250,248,244,0.75);
+    padding:56px 0 28px;
+  }
+  .footer-grid{
+    display:grid; grid-template-columns:1.2fr 1fr 1fr; gap:32px;
+    padding-bottom:36px; border-bottom:1px solid rgba(250,248,244,0.12);
+  }
+  footer .brand img{height:24px; margin-bottom:14px;}
+  footer .brand p{font-size:0.85rem; line-height:1.6; max-width:280px; color:rgba(250,248,244,0.55);}
+  footer h4{font-family:'Manrope',sans-serif; font-size:0.72rem; letter-spacing:0.16em; text-transform:uppercase; color:var(--gold); margin-bottom:14px; font-weight:700;}
+  footer p, footer a{font-size:0.88rem; line-height:1.9; text-decoration:none; color:rgba(250,248,244,0.75);}
+  .foot-bottom{
+    padding-top:24px; display:flex; justify-content:space-between; flex-wrap:wrap; gap:10px;
+    font-size:0.76rem; color:rgba(250,248,244,0.45);
+  }
+  @media (max-width:760px){
+    .footer-grid{grid-template-columns:1fr; gap:26px;}
+  }
+</style>
 </head>
 <body>
 
-<!-- Indicador de progreso: motivo de marca (tres montañas) -->
-<div class="progress-peaks" id="progressPeaks">
-  <svg viewBox="0 0 60 40" xmlns="http://www.w3.org/2000/svg">
-    <g>
-      <path d="M0 40 L12 14 L24 40 Z" fill="var(--line)"/>
-      <path class="peak-fill" data-peak="0" d="M0 40 L12 14 L24 40 Z" fill="var(--stone-700)"/>
-    </g>
-    <g>
-      <path d="M14 40 L26 6 L38 40 Z" fill="var(--line)"/>
-      <path class="peak-fill" data-peak="1" d="M14 40 L26 6 L38 40 Z" fill="var(--stone-300)"/>
-    </g>
-    <g>
-      <path d="M28 40 L40 12 L52 40 Z" fill="var(--line)"/>
-      <path class="peak-fill" data-peak="2" d="M28 40 L40 12 L52 40 Z" fill="var(--gold)"/>
-    </g>
-  </svg>
+<div class="topbar">
+  <div class="topbar-inner">
+    <div class="brand">
+      <img src="images/castdim-mark.png" alt="CASTDIM">
+      <div class="divider"></div>
+      <span class="privada-tag">Privada Lanka</span>
+    </div>
+    <a class="cta" href="https://wa.me/524441308013?text=Hola%2C%20me%20interesa%20Azurita%20C%20en%20Privada%20Lanka" target="_blank" rel="noopener">Agendar visita</a>
+  </div>
 </div>
 
-<header class="site-header" id="siteHeader">
-  <div class="brand-mark">
-    <img class="mini-peaks" src="assets/castdim-piramide.png" alt="">
-    <span>Trípoli</span>
-  </div>
-  <div class="header-tag">Terram Residencial</div>
-</header>
-
-<section class="hero" id="hero">
-  <div class="hero-media">
-    <img id="heroImg" src="assets/hero-fachada.jpg" alt="Fachada Trípoli — Terram Residencial">
-    <div class="hero-scrim"></div>
-  </div>
+<section class="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-scrim"></div>
   <div class="hero-content">
-    <div class="hero-eyebrow"><span class="dash"></span>Privada Agave Azul · San Luis Potosí</div>
-    <h1 class="hero-title"><span>Trípoli</span></h1>
-    <p class="hero-sub">Una casa pensada para vivirse en dos plantas: áreas sociales abiertas en planta baja y privacidad completa arriba, dentro de Terram Residencial.</p>
-    <div class="hero-cta-row">
-      <div class="price-badge">
-        <span class="price-label">Desde</span>
-        <span class="price-value" id="priceFrom">$0</span>
-        <span class="price-to">hasta <strong id="priceTo">$0</strong> <span id="priceCur"></span></span>
+    <div class="hero-inner">
+      <div class="hero-eyebrow-row">
+        <img src="images/castdim-logo.png" alt="CASTDIM">
+        <span class="sep">·</span>
+        <span class="privada">Privada Lanka</span>
       </div>
-      <div class="scroll-cue"><div class="line"></div>Recorrer la casa</div>
+      <h1 class="hero-title">Azurita C</h1>
+      <p class="hero-tagline">Tinaco oculto &amp; muros independientes</p>
+      <div class="hero-meta-row">
+        <div class="hero-price">
+          <div class="label">Desde</div>
+          <div class="value">$1,430,000 – $1,504,000 MXN</div>
+        </div>
+        <div class="hero-stats">
+          <div class="stat">
+            <div class="num">81 m²</div>
+            <div class="lbl">Terreno</div>
+          </div>
+          <div class="stat">
+            <div class="num">99.83 m²</div>
+            <div class="lbl">Construcción</div>
+          </div>
+          <div class="stat">
+            <div class="num">3</div>
+            <div class="lbl">Niveles</div>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
+  <div class="scroll-cue"></div>
 </section>
 
-<section class="stats">
-  <div class="wrap stats-row" id="statsRow">
-    <!-- generado por JS desde property-data.js -->
-  </div>
-</section>
-
-<section class="section plans">
+<section class="intro">
   <div class="wrap">
-    <div class="section-head reveal">
-      <div class="eyebrow"><span class="dash"></span>Distribución</div>
-      <h2 class="section-title">Cada nivel, a detalle</h2>
-      <p class="section-desc">Consulta la distribución de planta baja y planta alta de Trípoli, tal como se entrega en Privada Agave Azul.</p>
-    </div>
-
-    <div class="tabs reveal" role="tablist" aria-label="Seleccionar planta">
-      <button class="tab-btn active" data-plan="plantaBaja" role="tab" aria-selected="true">Planta Baja</button>
-      <button class="tab-btn" data-plan="plantaAlta" role="tab" aria-selected="false">Planta Alta</button>
-    </div>
-
-    <div class="plan-panel reveal" id="planPanel">
-      <!-- generado por JS -->
+    <div class="intro-grid">
+      <div>
+        <span class="eyebrow" style="color:var(--lanka-red);">El modelo</span>
+        <h2>Un hogar de tres niveles, pensado para crecer con la familia.</h2>
+        <p>Azurita C forma parte de Privada Lanka, uno de los desarrollos de CASTDIM en San Luis Potosí. Su distribución vertical aprovecha cada nivel: vida social en planta baja, descanso en planta alta y un roof versátil para el uso que la familia decida darle.</p>
+      </div>
+      <div class="intro-facts">
+        <div class="fact">
+          <div class="num serif">1</div>
+          <div class="lbl">Cochera cubierta</div>
+        </div>
+        <div class="fact">
+          <div class="num serif">2</div>
+          <div class="lbl">Recámaras</div>
+        </div>
+        <div class="fact">
+          <div class="num serif">2.5</div>
+          <div class="lbl">Baños</div>
+        </div>
+        <div class="fact">
+          <div class="num serif">1</div>
+          <div class="lbl">Balcón principal</div>
+        </div>
+      </div>
     </div>
   </div>
 </section>
 
-<section class="section" id="gallery">
+<section class="levels" id="niveles">
   <div class="wrap">
-    <div class="section-head reveal">
-      <div class="eyebrow"><span class="dash"></span>Galería</div>
-      <h2 class="section-title">Trípoli en imágenes</h2>
-      <p class="section-desc">Fotografías de la propiedad para conocerla con más detalle antes de visitarla.</p>
+    <div class="levels-head">
+      <span class="eyebrow">Distribución</span>
+      <h2>De la cochera al roof</h2>
     </div>
-    <div id="galleryContainer" class="reveal"></div>
+
+    <div class="building">
+      <div class="rail"><div class="rail-line"></div></div>
+      <div>
+        <div class="level">
+          <div class="level-marker">PB</div>
+          <div class="level-content">
+            <div>
+              <div class="level-tag">Planta Baja</div>
+              <h3>Vida en común</h3>
+              <p>Amplia sala, comedor y cocina integrados, cuarto de lavado, medio baño, jardín y cochera para 1 auto.</p>
+            </div>
+            <div class="level-photo"><img src="images/house-09.jpg" alt="Sala y comedor, planta baja de Azurita C" loading="lazy"></div>
+          </div>
+        </div>
+
+        <div class="level">
+          <div class="level-marker">PA</div>
+          <div class="level-content">
+            <div>
+              <div class="level-tag">Planta Alta</div>
+              <h3>Descanso</h3>
+              <p>Dos habitaciones y 1 baño completo. La recámara principal cuenta con balcón propio.</p>
+            </div>
+            <div class="level-photo"><img src="images/house-06.jpg" alt="Recámara principal, planta alta de Azurita C" loading="lazy"></div>
+          </div>
+        </div>
+
+        <div class="level">
+          <div class="level-marker">R</div>
+          <div class="level-content">
+            <div>
+              <div class="level-tag">Roof</div>
+              <h3>Espacio libre</h3>
+              <p>Una habitación con vestidor, baño completo y estancia: home office, cuarto de huéspedes o zona de entretenimiento.</p>
+            </div>
+            <div class="level-photo"><img src="images/house-08.jpg" alt="Roof con estancia y escritorio de Azurita C" loading="lazy"></div>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
 </section>
 
-<section class="closing">
+<section class="gallery-section">
   <div class="wrap">
-    <div class="eyebrow"><span class="dash"></span>Ubicación</div>
-    <h2 class="section-title">Terram Residencial, San Luis Potosí</h2>
-    <p class="section-desc">Trípoli forma parte de Privada Agave Azul, dentro del desarrollo Terram Residencial.</p>
-
-    <div class="lockup">
-      <img src="assets/terram-logo.png" alt="Terram Residencial">
-      <div class="divider"></div>
-      <img class="lockup-castdim" src="assets/un-proyecto-de-castdim.png" alt="Un proyecto de CASTDIM">
+    <div class="gallery-head">
+      <div>
+        <span class="eyebrow">Recorrido</span>
+        <h2>Azurita C en imágenes</h2>
+      </div>
+      <p>Fotografías reales del modelo. Los acabados pueden variar según avance de obra.</p>
     </div>
-
-    <div class="foot-meta">
-      <span>Sueños Hechos Propiedad</span>
-      <span>CASTDIM · castdim.mx</span>
+    <div class="gallery-grid" id="galleryGrid">
+      <button class="g-big" data-full="images/house-04.jpg"><img src="images/house-04.jpg" alt="Sala y comedor" loading="lazy"></button>
+      <button data-full="images/house-02.jpg"><img src="images/house-02.jpg" alt="Cocina" loading="lazy"></button>
+      <button data-full="images/house-03.jpg"><img src="images/house-03.jpg" alt="Detalle de cocina" loading="lazy"></button>
+      <button data-full="images/house-01.jpg"><img src="images/house-01.jpg" alt="Escalera, planta baja" loading="lazy"></button>
+      <button class="g-wide" data-full="images/house-09.jpg"><img src="images/house-09.jpg" alt="Sala" loading="lazy"></button>
+      <button data-full="images/house-07.jpg"><img src="images/house-07.jpg" alt="Pasillo, planta alta" loading="lazy"></button>
+      <button data-full="images/house-06.jpg"><img src="images/house-06.jpg" alt="Recámara principal" loading="lazy"></button>
+      <button data-full="images/house-05.jpg"><img src="images/house-05.jpg" alt="Baño completo" loading="lazy"></button>
+      <button class="g-wide" data-full="images/house-08.jpg"><img src="images/house-08.jpg" alt="Roof, estancia y escritorio" loading="lazy"></button>
     </div>
   </div>
 </section>
 
 <div class="lightbox" id="lightbox">
-  <button class="lightbox-close" id="lightboxClose">Cerrar ✕</button>
-  <img id="lightboxImg" src="" alt="">
+  <button class="close" id="lbClose">Cerrar ✕</button>
+  <button class="nav prev" id="lbPrev">‹</button>
+  <img id="lbImg" src="" alt="">
+  <button class="nav next" id="lbNext">›</button>
 </div>
 
-<script src="js/property-data.js"></script>
-<script src="js/main.js"></script>
+<section class="cta-band">
+  <div class="wrap cta-band-inner">
+    <div>
+      <h2>Aceptamos todo tipo de crédito</h2>
+      <p>Agenda tu cita y te acompañamos en todo el proceso.</p>
+    </div>
+    <div class="buttons">
+      <a class="btn btn-dark" href="https://wa.me/524441308013?text=Hola%2C%20me%20interesa%20Azurita%20C%20en%20Privada%20Lanka" target="_blank" rel="noopener">WhatsApp</a>
+      <a class="btn btn-outline" href="tel:4441124011">Llamar 444 112 4011</a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="footer-grid">
+      <div class="brand">
+        <img src="images/castdim-logo.png" alt="CASTDIM">
+        <p>Sueños Hechos Propiedad. Azurita C forma parte de Privada Lanka, un desarrollo CASTDIM en San Luis Potosí.</p>
+      </div>
+      <div>
+        <h4>Contacto</h4>
+        <p><a href="tel:4441124011">444 112 4011</a></p>
+        <p><a href="mailto:contactoventas@castdim.mx">contactoventas@castdim.mx</a></p>
+        <p><a href="https://wa.me/524441308013" target="_blank" rel="noopener">WhatsApp directo</a></p>
+      </div>
+      <div>
+        <h4>Visítanos</h4>
+        <p>Blvd. San Antonio 230,<br>Villa de Pozos, C.P. 78421<br>San Luis Potosí, S.L.P.</p>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <span>© 2026 CASTDIM. Precios sujetos a cambio sin previo aviso.</span>
+      <span>Las imágenes son de uso ilustrativo.</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+  const grid = document.getElementById('galleryGrid');
+  const lb = document.getElementById('lightbox');
+  const lbImg = document.getElementById('lbImg');
+  const items = Array.from(grid.querySelectorAll('button'));
+  let idx = 0;
+
+  function openLb(i){
+    idx = i;
+    lbImg.src = items[idx].dataset.full;
+    lbImg.alt = items[idx].querySelector('img').alt;
+    lb.classList.add('open');
+  }
+  items.forEach((btn,i)=> btn.addEventListener('click', ()=> openLb(i)));
+  document.getElementById('lbClose').addEventListener('click', ()=> lb.classList.remove('open'));
+  document.getElementById('lbPrev').addEventListener('click', ()=> openLb((idx-1+items.length)%items.length));
+  document.getElementById('lbNext').addEventListener('click', ()=> openLb((idx+1)%items.length));
+  lb.addEventListener('click', (e)=>{ if(e.target === lb) lb.classList.remove('open'); });
+  document.addEventListener('keydown', (e)=>{
+    if(!lb.classList.contains('open')) return;
+    if(e.key === 'Escape') lb.classList.remove('open');
+    if(e.key === 'ArrowRight') openLb((idx+1)%items.length);
+    if(e.key === 'ArrowLeft') openLb((idx-1+items.length)%items.length);
+  });
+</script>
+
 </body>
 </html>
